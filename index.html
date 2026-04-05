@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>В горы!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="sky">
+        <div class="clouds_one"></div>
+        <div class="clouds_two"></div>
+    </div>
+    <div class="mountains"></div>
+    
+    <div class="content" id="main-content">
+        <h1 class="animate-text" id="title">Когда выйдем в горы?</h1>
+        <p class="animate-subtext" id="subtitle">Приглашение на восхождение</p>
+        <button class="btn" onclick="acceptChallenge()">Принять вызов</button>
+    </div>
+
+    <script>
+        function acceptChallenge() {
+            // 1. Запуск конфетти 🎉
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff6b6b', '#ffd93d', '#6bc1ff', '#ffffff']
+            });
+
+            // 2. Меняем текст
+            const title = document.getElementById('title');
+            const subtitle = document.getElementById('subtitle');
+            
+            title.innerText = "Молодец! 🎉";
+            subtitle.innerText = "Я знал, что ты так сделаешь! Собирай рюкзак 🏔️";
+            
+            // 3. Прячем кнопку через секунду, чтобы не мешала
+            document.querySelector('.btn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
